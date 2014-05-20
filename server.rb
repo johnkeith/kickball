@@ -19,11 +19,18 @@ helpers do
   end
 end
 
+get '/' do
+  "Hi"
+end
+
 get '/teams/:team' do
   @team = params[:team]
   @players = parse_roster
   @team_name_capitalized = @team.split(" ").each { |name| name.capitalize! }.join(" ")
+
+
   erb :teams
+
 end
 
 get '/positions/:position' do
