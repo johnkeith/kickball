@@ -43,7 +43,7 @@ get '/teams' do
     @positions << player[:position] unless @positions.include?(player[:position])
   end
 
-  erb :'teams/index'
+  erb :index
 end
 
 get '/teams/:team' do
