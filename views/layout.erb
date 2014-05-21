@@ -6,6 +6,11 @@
   </head>
 
   <body>
+    <% if @show_home %>
+      <a href="/">Back to home</a>
+      <hr>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
