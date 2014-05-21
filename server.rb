@@ -30,10 +30,7 @@ helpers do
 end
 
 get '/' do
-  redirect '/teams'
-end
-
-get '/teams' do
+  @title = "Kickball Project Index"
   @players = parse_roster
   @teams = []
   @positions = []
@@ -46,7 +43,12 @@ get '/teams' do
   erb :index
 end
 
+get '/teams' do
+  redirect '/'
+end
+
 get '/teams/:team' do
+  @title = "Teams"
   @team = params[:team]
   @players = parse_roster.find_all { |player| player[:team] == @team }
   @team_name_capitalized = @team.split(" ").each { |name| name.capitalize! }.join(" ")
@@ -54,7 +56,12 @@ get '/teams/:team' do
 
 end
 
+get '/positions' do
+  redirect '/'
+end
+
 get '/positions/:position' do
+  @title = "Positions"
   @position = params[:position]
   @players = parse_roster.find_all { |player| player[:position] == @position }
   @position_cap = @position.split(" ").each { |name| name.capitalize! }.join(" ")
