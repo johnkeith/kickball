@@ -1,0 +1,8 @@
+<h3><%= "All Players That Play #{@position_cap}" %></h3>
+<ul>
+  <% @players.each do |player| %>
+    <% if player[:position] == @position %>
+      <li> <%= "#{player[:team]}: #{player[:first_name]} #{player[:last_name]}" %> </li>
+    <% end %>
+  <% end %>
+</ul>
